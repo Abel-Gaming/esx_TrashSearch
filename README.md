@@ -41,3 +41,5 @@ Citizen.CreateThread(function()
     })
 end)
 ```
+# Preview
+https://youtu.be/x6uu98bSQr0
