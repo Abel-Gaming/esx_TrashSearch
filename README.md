@@ -3,7 +3,7 @@ Store and withdraw items from dumpsters around San Andreas!
 
 # Requirements / Dependencies
 BT-TARGET : https://github.com/brentN5/bt-target
-ESX_AddonInventory
+Addon Inventory : https://github.com/esx-framework/esx_addoninventory
 
 # Additional
 You must import the provided SQL into your database!
