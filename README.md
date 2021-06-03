@@ -5,6 +5,7 @@ Store and withdraw items from dumpsters around San Andreas!
 BT-TARGET : https://github.com/brentN5/bt-target
 
 # Additional
+You must import the provided SQL into your database!
 Add the following code into main.lua inside of your client folder of bt-target
 
 ```
