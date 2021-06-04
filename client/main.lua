@@ -1,6 +1,4 @@
 ESX              = nil
-secondsUntilKick = 900
-kickWarning = true
 
 Citizen.CreateThread(function()
 	while ESX == nil do
