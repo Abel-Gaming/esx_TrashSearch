@@ -30,7 +30,7 @@ ESX.RegisterServerCallback('esx_TrashSearch:getStockItems', function(source, cb,
 	end)
 end)
 
-RegisterServerEvent('esx_TrashSearch:putStockItems')
+RegisterNetEvent('esx_TrashSearch:putStockItems')
 AddEventHandler('esx_TrashSearch:putStockItems', function(itemName, count, storageName)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	local sourceItem = xPlayer.getInventoryItem(itemName)
@@ -49,7 +49,7 @@ AddEventHandler('esx_TrashSearch:putStockItems', function(itemName, count, stora
 	end)
 end)
 
-RegisterServerEvent('esx_TrashSearch:getStockItem')
+RegisterNetEvent('esx_TrashSearch:getStockItem')
 AddEventHandler('esx_TrashSearch:getStockItem', function(itemName, count, storageName)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
