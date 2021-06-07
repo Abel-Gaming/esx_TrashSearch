@@ -9,8 +9,17 @@ end)
 
 RegisterNetEvent('esx_TrashSearch:Search', function()
 	if Config.UsePreset then
-		randomItem = Config.Items[math.random(#Config.Items)]
-		TriggerServerEvent('esx_TrashSearch:GiveItem', randomItem)
+		local dumpster = ESX.Game.GetClosestObject(GetEntityCoords(PlayerPedId()))
+		local dumpsterModel = GetEntityModel(dumpster)
+	
+		for k,v in pairs(Config.DumpsterModels) do
+			if dumpsterModel == v then
+				randomItem = Config.Items[math.random(#Config.Items)]
+				TriggerServerEvent('esx_TrashSearch:GiveItem', randomItem)
+				local dumpsterNearby = ESX.Game.GetClosestObject(GetEntityCoords(PlayerPedId()))
+				ESX.Game.DeleteObject(dumpsterNearby)
+			end
+		end
 	else
 		OpenGetStocksMenu(Config.AddonInventoryName)
 	end
