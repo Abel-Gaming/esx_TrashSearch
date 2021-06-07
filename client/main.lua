@@ -1,4 +1,6 @@
 ESX              = nil
+secondsUntilKick = 900
+kickWarning = true
 
 Citizen.CreateThread(function()
 	while ESX == nil do
@@ -7,11 +9,12 @@ Citizen.CreateThread(function()
 	end
 end)
 
-RegisterNetEvent('esx_TrashSearch:Search', function()
+RegisterNetEvent('esx_TrashSearch:Search')
+AddEventHandler('esx_TrashSearch:Search', function()
 	if Config.UsePreset then
 		local dumpster = ESX.Game.GetClosestObject(GetEntityCoords(PlayerPedId()))
 		local dumpsterModel = GetEntityModel(dumpster)
-	
+		
 		for k,v in pairs(Config.DumpsterModels) do
 			if dumpsterModel == v then
 				randomItem = Config.Items[math.random(#Config.Items)]
@@ -25,7 +28,8 @@ RegisterNetEvent('esx_TrashSearch:Search', function()
 	end
 end)
 
-RegisterNetEvent('esx_TrashSearch:Deposit', function()
+RegisterNetEvent('esx_TrashSearch:Deposit')
+AddEventHandler('esx_TrashSearch:Deposit', function()
 	local dumpster = ESX.Game.GetClosestObject(GetEntityCoords(PlayerPedId()))
 	local dumpsterModel = GetEntityModel(dumpster)
 	
