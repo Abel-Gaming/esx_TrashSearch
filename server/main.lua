@@ -30,7 +30,7 @@ ESX.RegisterServerCallback('esx_TrashSearch:getStockItems', function(source, cb,
 	end)
 end)
 
-RegisterNetEvent('esx_TrashSearch:putStockItems')
+RegisterServerEvent('esx_TrashSearch:putStockItems')
 AddEventHandler('esx_TrashSearch:putStockItems', function(itemName, count, storageName)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	local sourceItem = xPlayer.getInventoryItem(itemName)
@@ -49,7 +49,7 @@ AddEventHandler('esx_TrashSearch:putStockItems', function(itemName, count, stora
 	end)
 end)
 
-RegisterNetEvent('esx_TrashSearch:getStockItem')
+RegisterServerEvent('esx_TrashSearch:getStockItem')
 AddEventHandler('esx_TrashSearch:getStockItem', function(itemName, count, storageName)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
@@ -70,4 +70,9 @@ AddEventHandler('esx_TrashSearch:getStockItem', function(itemName, count, storag
 			xPlayer.showNotification('~r~Invalid Amount')
 		end
 	end)
+end)
+
+RegisterServerEvent('esx_TrashSearch:deleteEntity')
+AddEventHandler('esx_TrashSearch:deleteEntity', function(entity)
+	TriggerClientEvent('esx_TrashSearch:deleteEntityReturn', -1, entity)
 end)
