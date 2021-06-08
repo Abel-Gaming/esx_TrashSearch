@@ -6,10 +6,9 @@ Config.UsePreset = false -- This will use the items below instead of items playe
 Config.Items = {
     'bread',
     'water',
-    'beer',
-    'cannabis',
-    'scratchoff_used'
+    'beer'
 }
+Config.GlobalDelete = true -- If enabled, the dumpster will delete for everyone. If not, it will only delete locally.
 
 Config.DumpsterModels = {
     1143474856,
@@ -24,3 +23,5 @@ Config.DumpsterModels = {
 	-1587184881,
 	1329570871
 }
+
+Config.EnableDebug = true
