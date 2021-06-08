@@ -1,6 +1,4 @@
 ESX              = nil
-secondsUntilKick = 900
-kickWarning = true
 
 Citizen.CreateThread(function()
 	while ESX == nil do
@@ -20,7 +18,12 @@ AddEventHandler('esx_TrashSearch:Search', function()
 				randomItem = Config.Items[math.random(#Config.Items)]
 				TriggerServerEvent('esx_TrashSearch:GiveItem', randomItem)
 				local dumpsterNearby = ESX.Game.GetClosestObject(GetEntityCoords(PlayerPedId()))
-				ESX.Game.DeleteObject(dumpsterNearby)
+
+				if Config.GlobalDelete then
+					TriggerServerEvent('esx_TrashSearch:deleteEntity', dumpsterNearby)
+				else
+					ESX.Game.DeleteObject(dumpsterNearby)
+				end
 			end
 		end
 	else
@@ -38,6 +41,11 @@ AddEventHandler('esx_TrashSearch:Deposit', function()
 			OpenStorageMenu(Config.AddonInventoryName)
 		end
 	end
+end)
+
+RegisterNetEvent('esx_TrashSearch:deleteEntityReturn')
+AddEventHandler('esx_TrashSearch:deleteEntityReturn', function(entity)
+	ESX.Game.DeleteObject(entity)
 end)
 
 function OpenMainStorageMenu(storageName)
