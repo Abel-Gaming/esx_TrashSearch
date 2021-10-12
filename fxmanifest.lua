@@ -1,4 +1,4 @@
-fx_version 'bodacious'
+fx_version 'cerulean'
 game 'gta5'
 description 'ESX Trash Search - Search dumpsters for deposited items!'
 author 'Abel Gaming'
